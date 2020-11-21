@@ -1,0 +1,742 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" id="bdy1" runat="server">
+<head runat="server">
+       <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+  <meta name="generator" content="7.0.314.244"/>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+      <meta charset='utf-8'/>
+	<title></title>
+		<script>
+		    var examples = [];
+		    function ClearPostBox() {
+
+		        document.getElementById("txtNewPost").value = "";
+		        document.getElementById("txtPhotoPost").value = "";
+		        document.getElementById("txtVideoPost").value = "";
+		        document.getElementById("linkpost").value = "";
+		        document.getElementById("txtLinkPost").value = "";
+
+		    }
+	</script>
+    <link href="colorbox-master/example1/colorbox.css" rel="stylesheet" />
+		
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
+    <script src="colorbox-master/jquery.colorbox.js"></script>
+    <script>
+        var $c = jQuery.noConflict();
+        $c(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+
+            $c(".inline").colorbox({ inline: true, width: "80%" });
+            $c(".callbacks").colorbox({
+                onOpen: function () { alert('onOpen: colorbox is about to open'); },
+                onLoad: function () { alert('onLoad: colorbox has started to load the targeted content'); },
+                onComplete: function () { alert('onComplete: colorbox has displayed the loaded content'); },
+                onCleanup: function () { alert('onCleanup: colorbox has begun the close process'); },
+                onClosed: function () { alert('onClosed: colorbox has completely closed'); }
+            });
+
+
+
+            //Example of preserving a JavaScript event for inline calls.
+            $c("#click").click(function () {
+                $c('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+		</script>
+  <!-- CSS -->
+    <%-- <script src="js/jquery.js"></script>--%>
+     <script>
+         $(document).ready(function () {
+             $(window).scroll(function () {
+                 if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                     //alert("Update");
+
+                     $("#ContentPlaceHolder1_LoadMore").click();
+
+                 }
+             });
+         });
+    </script>
+ <%--   <link href="notification-menu/notification_menu/css/style_light.css" rel="stylesheet" />--%>
+     <%-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>--%>
+    
+  <%--  <script src="notification-menu/notification_menu/js/jquery-ui-1.8.14.custom.min.js"></script>
+   
+    <script src="notification-menu/notification_menu/js/ttw-notification-menu.js"></script>
+  
+    <script src="notification-menu/demo/demo.js"></script>
+
+
+    <link href="notification-menu/demo/generate_notification_form/css/style.css" rel="stylesheet" />
+   
+    <link href="notification-menu/demo/generate_notification_form/css/uniform.css" rel="stylesheet" />
+  
+    <script src="notification-menu/demo/generate_notification_form/js/jquery.tools.js"></script>
+    
+    <script src="notification-menu/demo/generate_notification_form/js/jquery.uniform.min.js"></script>
+   
+    <script src="notification-menu/demo/generate_notification_form/js/main.js"></script>--%>
+
+    <style type="text/css">
+        .tooltip {
+            width: 250px;
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            background: #444;
+            border: 1px solid #090909;
+            border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            position: absolute;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            color:#fff;
+            padding:12px 24px;
+            line-height:18px;
+        }
+
+        .tooltip:after {
+            content: '';
+            position: absolute;
+            border-color: transparent  #444 transparent transparent;
+            border-style: solid;
+            border-width: 10px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -10px;
+            margin-left: -20px;
+        }
+
+        .tooltip:before {
+            content: '';
+            position: absolute;
+            border-color:   transparent #090909 transparent transparent;
+            border-style: solid;
+            border-width: 10px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -10px;
+            margin-left: -20px;
+        }
+        
+        body{
+            background: transparent url(images/bg.png) repeat 0 0 scroll;
+        }
+
+        .ttw-notification-menu{
+                width: 276px;
+        }
+
+
+    </style>
+    <script src="js/ajaxupload-min.js"></script>
+<%--    <link href="css/baseTheme/style.css" rel="stylesheet" media="all" />--%>
+    <link href="css/classicTheme/style.css" rel="stylesheet" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/master.css"/>
+    <%--  <script src="Scripts/jquery.js"></script>--%>
+    <script src="Scripts/mediaelement-and-player.min.js"></script>
+    <link href="Scripts/mediaelementplayer.css" rel="stylesheet" />
+  <!-- Other scripts -->
+     <link href="css/typeahead.tagging.css" rel="stylesheet" />
+     
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+     <script src="Scripts/jquery.signalR-2.1.1.min.js"></script>
+    <script src="signalr/hubs" type="text/javascript"></script>
+
+    <script src="ChatJs/js/jquery.autosize.js"></script>
+    <script src="ChatJs/js/jquery.chatjs.adapter.demo.js"></script>
+    <script src="ChatJs/js/jquery.chatjs.adapter.js"></script>
+    <script src="ChatJs/js/jquery.chatjs.adapter.servertypes.js"></script>
+ 
+    <script src="ChatJs/js/jquery.chatjs.controller.js"></script>
+    <script src="ChatJs/js/jquery.chatjs.friendswindow.js"></script>
+    <script src="ChatJs/js/jquery.chatjs.interfaces.js"></script>
+    <script src="ChatJs/js/jquery.chatjs.messageboard.js"></script>
+    <script src="ChatJs/js/jquery.chatjs.pmwindow.js"></script>
+    <script src="ChatJs/js/jquery.chatjs.userlist.js"></script>
+    <script src="ChatJs/js/jquery.chatjs.utils.js"></script>
+    <script src="ChatJs/js/jquery.chatjs.window.js"></script>
+
+    <link rel="stylesheet" href="ChatJs/css/jquery.chatjs.css" />
+    
+    
+ 
+  
+    	<style>
+        .spinner {
+  margin: 100px auto 0;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #26284F;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+    </style>
+    <style>
+        .spinnercm {
+  /*margin: 100px auto 0;
+  width: 70px;*/
+  text-align: center;
+}
+
+.spinnercm > div {
+  width: 18px;
+  height: 18px;
+  background-color: #26284F;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.spinnercm .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinnercm .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+    </style>
+   
+   
+     <style type="text/css">
+    .FileUploadClass input
+    {
+        width:100%!important; // mandatory
+    }
+</style>
+
+     <script type="text/javascript">
+         function clk() {
+             document.getElementById("ctl00_ContentPlaceHolder1_AsyncFileUpload1_ctl02").click();
+         }
+         function onUpdating() {
+             // get the divImage
+             var panelProg = $get('divImage');
+             // set it to visible
+             panelProg.style.display = '';
+             
+         
+       
+             // set it to visible
+            
+
+
+         }
+         function onUpdated() {
+             // get the divImage
+             var panelProg = $get('divImage');
+             // set it to invisible
+             panelProg.style.display = 'none';
+           
+         }
+         function onUpdatingpost() {
+             // get the divImage
+             var panelProg = $get('divImagepost');
+             // set it to visible
+             panelProg.style.display = '';
+             var btnpost = $get('ContentPlaceHolder1_btnNewPost');
+             btnpost.disabled = true;
+             var paneltxt = $get('txtNewPost');
+             paneltxt.disabled = true;
+             paneltxt.style.backgroundColor = "rgb(231,243,244)";
+
+
+         }
+         function onUpdatedpost() {
+             // get the divImage
+             var panelProg = $get('divImagepost');
+             // set it to invisible
+             panelProg.style.display = 'none';
+             var btnpost = $get('ContentPlaceHolder1_btnNewPost');
+             btnpost.disabled = false;
+             var paneltxt = $get('txtNewPost');
+
+             // set it to visible
+             paneltxt.disabled = false;
+             paneltxt.style.backgroundColor = "white";
+         }
+
+      
+       
+
+
+    </script>
+
+    <script type="text/javascript">
+
+        function onUpdatingcm() {
+            // get the divImage
+            var panelProg = $get('spinnercm');
+            // set it to visible
+            panelProg.style.display = '';
+
+
+        }
+
+        function onUpdatedcm() {
+            // get the divImage
+            var panelProg = $get('spinnercm');
+            // set it to invisible
+            panelProg.style.display = 'none';
+        }
+
+
+    </script>
+  <script>
+      function GetFriendID(source, eventArgs) {
+          document.getElementById('txtFriendsID').value = eventArgs.get_value();
+          document.getElementById('txtCircleFamilyID').value = eventArgs.get_value();
+          document.getElementById('txtCircleAcquaintancesId').value = eventArgs.get_value();
+          //document.getElementById('txtSearch').value = eventArgs.get_value();
+      }
+      function GetFriendImage(sender, e) {
+          var employees = sender.get_completionList().childNodes;
+          for (var i = 0; i < employees.length; i++) {
+              var div = document.createElement("DIV");
+              div.innerHTML = "<img style = 'height:50px;width:50px' src = 'ThumbnailHandlerProfileSearch.ashx?userid="
+              + employees[i]._value + "' />";
+              employees[i].appendChild(div);
+               <%--            <img id="UserProfile_ImageProfile" class="whiteborder" src="ThumbnailHandlerPost.ashx?userid=53d7c9b9-4808-4f0c-a36d-fb548d6ebc15" />--%>
+
+           }
+       }
+      function GetFriendProfile(source, eventArgs) {
+          //document.getElementById('txtFriendsID').value = eventArgs.get_value();
+          //document.getElementById('txtSearch').value = eventArgs.get_value();
+          //document.getElementById('txtCircleAcquaintancesId').value = eventArgs.get_value();
+          //alert(eventArgs.get_value());
+          window.location.href = 'index_m.aspx?un=' + eventArgs.get_value();
+      }
+      
+      function GetFriendName(source, eventArgs) {
+          //document.getElementById('txtFriendsID').value = eventArgs.get_value();
+          //document.getElementById('txtSearch').value = eventArgs.get_value();
+          document.getElementById('txtNewPost').value += " -" + eventArgs.get_value();
+
+
+      }
+      function setHeight(txtdesc) {
+          txtdesc.style.height = txtdesc.scrollHeight + "px";
+      }
+     
+      function OnClientUploadComplete() {
+          window.location.reload(true);
+      }
+     <%-- function getFlickerSolved() {
+          document.getElementById('<%# pnCircleMore.ClientID%>').style.display = 'none';
+       }--%>
+
+    </script>
+    <style>
+        .displaynone{
+            display:none;
+        }
+        .floatleft{
+            float:right;
+            margin-right:15px;
+        }
+        #txtbox_search{
+            margin-left:-210px;
+            margin-top:20px;
+            width:210px;
+        }
+        .modalBackground
+        {
+            /*z-index:100;*/
+            height:100%;
+    background-color:gray;
+    filter:alpha(opacity=70);
+    opacity:0.7;
+        }
+        .modalBackgroundImage
+         {
+            /*z-index:100;*/
+            height:100%;
+    background-color:white;
+    filter:alpha(opacity=70);
+    opacity:0.7;
+    overflow: hidden;
+        }
+        .popup
+        {
+            z-index:2000;
+            background-color: white;
+            margin: 0px auto;
+            /*width: auto;*/
+            position: relative;
+            border: Gray 2px inset;
+        }
+         .popup2
+        {
+             z-index:2000;
+            background-color: white;
+            margin: 0px auto;
+            width: 330px;
+            position: relative;
+            border: Gray 2px inset;
+        }
+        .popupcircle{
+            z-index:1000;
+            background-color: white;
+            margin: 0px auto;
+            width: 330px;
+            position: fixed;
+            border: Gray 2px inset;
+            left:80px;
+            top:70px;
+        }
+        .image { position:relative; margin-left:-5px;  }
+.hoverimage { position:absolute; left: 20px; top:100px; display: none; }
+.image:hover .hoverimage { display: block; }
+.image2 { position:relative; }
+.hoverimage2 { position:absolute; left: 2px; top:170px; display: none; }
+.image2:hover .hoverimage2 { display: block; }
+
+
+
+
+.image-upload > input
+{
+    display: none;
+}
+.AutoExtender
+{
+    font-size: 12px;
+    color: #000;
+    padding: 3px 5px;
+    border: 1px solid #999;
+    background: #fff;
+    width: 300px;
+    float: left;
+    z-index: 9999999999 !important;
+    position:absolute;
+    margin-left:0px;
+    list-style: none;
+    font-weight: bold;
+} 
+    
+    </style>
+    <style>
+        .Menu
+{  
+
+}
+
+.Menu ul
+{  
+    /*background:#7795BD;*/
+}
+
+.Menu ul li
+{
+    /*background:#7795BD url(images/menu_bg.gif) repeat-x;*/
+    text-align:center;
+    /* set width if needed.*/
+    width:155px;
+    position: relative;  
+    float: left; 
+    list-style: none; 
+}
+
+.Menu ul li a
+{
+    color: black;
+    padding: 4px 2px 4px;
+    padding-left:8px !important;
+    /*border:1px solid #648ABD;*/
+    border-bottom: 0;
+}
+
+.Menu ul li a:hover
+{
+    background-image: none;
+    font-size:medium;
+}
+
+.Menu ul li a:hover
+{
+    color: White;
+}
+
+.Menu ul li a
+{
+    color: white;
+}
+.menu ul li ul 
+{ 
+    display: none; 
+} 
+    </style>
+    
+    
+ 
+    <asp:ContentPlaceHolder id="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body >
+    <form id="form1" runat="server">
+       
+        <ajaxToolkit:ToolkitScriptManager ID="MasterScriptManager" EnablePartialRendering="true" runat="server" />
+        <%-- <script type="text/javascript">
+             var prm = Sys.WebForms.PageRequestManager.getInstance();
+             prm.add_beginRequest(beginRequest);
+             function beginRequest() {
+                 prm._scrollPosition = null;
+             }
+</script>--%>
+      
+    <div class=" clearfix" id="page"><!-- column -->
+       
+         <div id="header_slide_bar"><!-- simple frame --></div>
+   <div class="position_content" id="page_position_content">
+    <div class="clearfix colelem" id="pu948"><!-- group -->
+     
+     <div class="clearfix grpelem" id="u4920"><!-- group -->
+         <div class="clearfix grpelem" id="u4964"><!-- column -->
+    
+         <ul class="MenuBar shadow rounded-corners clearfix colelem" id="top_menu" style="width:200px"><!-- horizontal box --> 
+     <asp:ContentPlaceHolder ID="ContentPlaceHolder_top_menu" runat="server">
+           
+     </asp:ContentPlaceHolder>
+       
+         </ul>
+       
+    
+       <ul class="MenuBar clearfix colelem" id="mainmenu"><!-- horizontal box -->
+        <li class="MenuItemContainer clearfix grpelem" id="u5013"><!-- vertical box -->
+         
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder_left_menu" runat="server"></asp:ContentPlaceHolder>
+         <div class="SubMenu  MenuLevel1 clearfix" id="u5018"><!-- vertical box -->
+          <ul class="SubMenuView clearfix colelem" id="u5019"><!-- vertical box -->
+           
+           
+          
+          </ul>
+         </div>
+        </li>
+       </ul>
+      </div>
+      
+     </div>
+    </div>
+    <div class="clearfix colelem" id="pu4682"><!-- group -->
+     <div id="u4682"><!-- fixed frame --></div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        
+     <div class="clearfix" id="u6049"><!-- header_nav_menus -->
+      <div id="u151"><!-- simple frame --></div>
+         <ul class="MenuBar clearfix" id="menuu5344"><!-- horizontal box -->
+       <li class="MenuItemContainer clearfix grpelem" id="covert_link" runat="server"><!-- vertical box -->
+        <div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u5353"><!-- vertical box -->
+         <div class="museBGSize clip_frame colelem" id="u5355"><!-- image --></div>
+         <div class="MenuItemLabel NoWrap clearfix colelem" id="u5354-4"><!-- content -->
+          <p>Covert</p>
+            <p>  <asp:HiddenField runat="server" ID="current_user_id" /></p>
+         </div>
+            <div id="covert_line" runat="server" style="width:50px;height:3px;background-color:white" class="colelem" visible="false"></div>
+        </div>
+       </li>
+       <li class="MenuItemContainer clearfix grpelem" id="race_link" runat="server"><!-- vertical box -->
+        <div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u5369"><!-- vertical box -->
+         <div class="museBGSize clip_frame colelem" id="u5370"><!-- image --></div>
+         <div class="MenuItemLabel NoWrap clearfix colelem" id="u5372-4"><!-- content -->
+          <p>Race</p>
+         </div>
+            <div id="race_line" runat="server" style="width:50px;height:3px;background-color:white" class="colelem" visible="false"></div>
+        </div>
+       </li>
+       <li class="MenuItemContainer clearfix grpelem" id="home_link" runat="server"><!-- vertical box -->
+        <div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u5360"><!-- vertical box -->
+         <div class="museBGSize clip_frame colelem" id="u5363"><!-- image --></div>
+         <div class="MenuItemLabel NoWrap clearfix colelem" id="u5361-4"><!-- content -->
+          <p>Home</p>
+         </div>
+            <div id="home_line" runat="server" style="width:50px;height:3px;background-color:white" class="colelem" visible="false"></div>
+        </div>
+       </li>
+       <li class="MenuItemContainer clearfix grpelem" id="profile_link" runat="server"><!-- vertical box -->
+        <div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u5346"><!-- vertical box -->
+         <div class="museBGSize clip_frame colelem" id="u5348"><!-- image --></div>
+         <div class="MenuItemLabel NoWrap clearfix colelem" id="u5349-4"><!-- content -->
+          <p>Profile</p>
+         </div>
+            <div id="profile_line" runat="server" style="width:50px;height:3px;background-color:white" class="colelem" visible="false"></div>
+        </div>
+       </li>
+      </ul>
+        
+             <asp:TextBox ID="txtSearch" runat="server"  CssClass="txtSearch" ></asp:TextBox>
+      <ajaxToolkit:AutoCompleteExtender CompletionListCssClass="AutoExtender" OnClientPopulated="GetFriendImage" OnClientItemSelected="GetFriendProfile" ID="AutoCompleteExtender4" runat="server" MinimumPrefixLength="1" ServiceMethod="GetFriendInfo" ServicePath="WebService.asmx" TargetControlID="txtSearch"  > </ajaxToolkit:AutoCompleteExtender> 
+        <div class="grpelem" id="u4379"><!-- simple frame -->
+      </div>
+
+      <ul class="MenuBar clearfix" id="menuu1890"><!-- horizontal box -->
+           <%-- <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick"></asp:Timer>--%>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+              <%--  <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+                </Triggers>--%>
+                <ContentTemplate>
+       <li class="MenuItemContainer clearfix grpelem" id="u1926" runat="server"><!-- vertical box -->
+            <asp:Label ID="Label3" runat="server" Text="" ForeColor="Red"></asp:Label>   
+        <div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u1929"><!-- vertical box -->
+         <div class="clip_frame colelem" id="u1930"><!-- image --></div>
+         <div class="MenuItemLabel NoWrap clearfix colelem" id="u1932-4"><!-- content -->
+          <p>Friends Finder</p>
+         </div>
+        </div>
+       </li>
+       <li class="MenuItemContainer clearfix grpelem" id="u1905" runat="server"><!-- vertical box -->
+          <div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u1908"><!-- vertical box -->
+         <div class="clip_frame colelem" id="u1911"><!-- image --></div>
+         <div class="MenuItemLabel NoWrap clearfix colelem" id="u1910-4"><!-- content -->
+          <p>Settings</p>
+         </div>
+        </div>
+       </li>
+        
+       <li class="MenuItemContainer clearfix grpelem" id="u1912" runat="server"><!-- vertical box -->   
+            <asp:Label ID="Label2" runat="server" Text="" ForeColor="Red"></asp:Label>     
+        <div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u1915"><!-- vertical box -->
+         <div class="clip_frame colelem" id="u1917"><!-- image --></div>
+         <div class="MenuItemLabel NoWrap clearfix colelem" id="u1918-4"><!-- content -->
+          <p>Message</p>
+         </div>
+        </div>
+       </li>
+          <%--  <asp:SqlDataSource ID="SqlDataSource1" runat="server" OnSelecting="SqlDataSource1_Selecting" ConnectionString="<%$ ConnectionStrings:SecurityConnectionString %>" SelectCommand="SELECT COUNT(UserId) FROM [Notifications] WHERE ([UserId] = @UserId)">
+                <SelectParameters>
+                    <asp:Parameter Name="UserId" Type="Object" />
+                </SelectParameters>
+           </asp:SqlDataSource>--%>
+          
+
+       <li class="MenuItemContainer clearfix grpelem" id="u1919" runat="server"><!-- vertical box -->   
+                 <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
+        <div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u1920"><!-- vertical box -->
+         <div class="clip_frame colelem" id="u1921"><!-- image --></div>
+         <div class="MenuItemLabel NoWrap clearfix colelem" id="u1923-4"><!-- content -->
+          <p>Notification</p>
+         </div>
+        </div>
+       </li>
+                    </ContentTemplate>
+          </asp:UpdatePanel>
+       <li class="MenuItemContainer clearfix grpelem" id="u1948" runat="server"><!-- vertical box -->
+        <div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u1951"><!-- vertical box -->
+         <div class="clip_frame colelem" id="u1952"><!-- image --></div>
+         <div class="MenuItemLabel NoWrap clearfix colelem" id="u1953-4"><!-- content -->
+          <p>Log Out</p>
+         </div>
+        </div>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" >
+        
+        </asp:ContentPlaceHolder>
+    </div>
+       </div>
+        </div>
+    </form>
+</body>
+    <script type="text/javascript">
+        $(function () {
+            $.chat({
+                // your user information
+                userId: '<%= currentUserId.ToString() %>',
+                // id of the room. The friends list is based on the room Id
+                roomId: 1,
+                // text displayed when the other user is typing
+                typingText: ' is typing...',
+                // text displayed when there's no other users in the room
+                emptyRoomText: "There's no one around here. You can still open a session in another browser and chat with yourself :)",
+                // the adapter you are using
+                chatJsContentPath: '/ChatJs/',
+                adapter: new DemoAdapter()
+            });
+        });
+    </script>
+</html>
+
+ 
+ 

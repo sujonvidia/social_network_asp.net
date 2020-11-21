@@ -1,0 +1,66 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.master" AutoEventWireup="true" CodeFile="liked_post.aspx.cs" Inherits="_Default" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+     <link rel="stylesheet" type="text/css" href="css/master.css"/>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_top_menu" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_left_menu" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div style="background-color: white;margin-left: 0px;margin-top: 25px;width: 960px;
+	min-height: 1226.6666666666674px;">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="UserId" DataSourceID="LikeDS">
+        <Columns>
+            <asp:BoundField DataField="LikeId" HeaderText="LikeId" SortExpression="LikeId" />
+            <asp:BoundField DataField="LikeUser" HeaderText="LikeUser" SortExpression="LikeUser" />
+            <asp:BoundField DataField="LikeDate" HeaderText="LikeDate" SortExpression="LikeDate" />
+            <asp:BoundField DataField="Expr1" HeaderText="Expr1" SortExpression="Expr1" />
+            <asp:BoundField DataField="UserId" HeaderText="UserId" ReadOnly="True" SortExpression="UserId" />
+            <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
+            <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+            <asp:BoundField DataField="MiddleName" HeaderText="MiddleName" SortExpression="MiddleName" />
+            <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+            <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName" />
+            <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
+            <asp:BoundField DataField="Birthday" HeaderText="Birthday" SortExpression="Birthday" />
+            <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+            <asp:BoundField DataField="E_mail" HeaderText="E_mail" SortExpression="E_mail" />
+            <asp:BoundField DataField="Career" HeaderText="Career" SortExpression="Career" />
+            <asp:BoundField DataField="CareerDescription" HeaderText="CareerDescription" SortExpression="CareerDescription" />
+            <asp:BoundField DataField="Day" HeaderText="Day" SortExpression="Day" />
+            <asp:BoundField DataField="Month" HeaderText="Month" SortExpression="Month" />
+            <asp:BoundField DataField="Year" HeaderText="Year" SortExpression="Year" />
+            <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+            <asp:BoundField DataField="Hometown" HeaderText="Hometown" SortExpression="Hometown" />
+            <asp:BoundField DataField="School_College" HeaderText="School_College" SortExpression="School_College" />
+            <asp:BoundField DataField="University" HeaderText="University" SortExpression="University" />
+            <asp:BoundField DataField="MsgFrdLast" HeaderText="MsgFrdLast" SortExpression="MsgFrdLast" />
+            <asp:BoundField DataField="Relationship" HeaderText="Relationship" SortExpression="Relationship" />
+            <asp:BoundField DataField="RaceGroup" HeaderText="RaceGroup" SortExpression="RaceGroup" />
+            <asp:BoundField DataField="RaceRank" HeaderText="RaceRank" SortExpression="RaceRank" />
+            <asp:BoundField DataField="IweuTotal" HeaderText="IweuTotal" SortExpression="IweuTotal" />
+            <asp:BoundField DataField="Interested" HeaderText="Interested" SortExpression="Interested" />
+            <asp:BoundField DataField="Language" HeaderText="Language" SortExpression="Language" />
+            <asp:BoundField DataField="RelView" HeaderText="RelView" SortExpression="RelView" />
+            <asp:BoundField DataField="PolView" HeaderText="PolView" SortExpression="PolView" />
+            <asp:BoundField DataField="Aboutme" HeaderText="Aboutme" SortExpression="Aboutme" />
+            <asp:BoundField DataField="Quote" HeaderText="Quote" SortExpression="Quote" />
+            <asp:BoundField DataField="Skills" HeaderText="Skills" SortExpression="Skills" />
+            <asp:BoundField DataField="PNum" HeaderText="PNum" SortExpression="PNum" />
+            <asp:BoundField DataField="WNum" HeaderText="WNum" SortExpression="WNum" />
+            <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
+            <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
+        </Columns>
+    </asp:GridView>
+        </div>
+    <asp:SqlDataSource ID="LikeDS" runat="server" OnSelecting="LikeDS_Selecting" ConnectionString="<%$ ConnectionStrings:SecurityConnectionString %>" SelectCommand="SELECT UserLikes.LikeId, UserLikes.LikeUser, UserLikes.LikeDate, UserLikes.UserId AS Expr1, UserProfiles.* FROM UserLikes INNER JOIN UserProfiles ON UserLikes.UserId = UserProfiles.UserId WHERE (UserLikes.LikeId = @LikeId)">
+        <SelectParameters>
+            <asp:Parameter Name="LikeId" Type="Object" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+</asp:Content>
+

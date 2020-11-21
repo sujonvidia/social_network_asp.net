@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class change_background : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+        MembershipUser currentUser = Membership.GetUser();
+        if (currentUser != null)
+        {
+            Guid currentUserId = (Guid)currentUser.ProviderUserKey;
+
+            //if (txtNewPost.Text != string.Empty)
+            //{
+            string connectionString =
+            ConfigurationManager.ConnectionStrings["SecurityConnectionString"].ConnectionString;
+            string updateSql = "UPDATE UserProfiles SET CoverPicture = @CoverPicture WHERE UserId = @UserId";
+
+            using (SqlConnection myConnection = new SqlConnection(connectionString))
+            {
+                myConnection.Open();
+                SqlCommand myCommand = new SqlCommand(updateSql, myConnection);
+                myCommand.Parameters.AddWithValue("@UserId", currentUserId);
+                if (FileUpload1.HasFile)
+                {
+                    HttpPostedFile file = FileUpload1.PostedFile;
+
+                    byte[] data = new byte[file.ContentLength];
+
+                    file.InputStream.Read(data, 0, file.ContentLength);
+                    myCommand.Parameters.AddWithValue("@CoverPicture", data);
+                }
+
+                myCommand.ExecuteNonQuery();
+                myConnection.Close();
+            }
+
+            // }
+        }
+        this.DataBind();
+    }
+}

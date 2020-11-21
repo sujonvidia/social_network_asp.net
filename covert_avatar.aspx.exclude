@@ -1,0 +1,24 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="covert_avatar.aspx.cs" Inherits="covert_avatar" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript">
+        function f2() {
+
+            opener.document.getElementById("txtPostedby").value = document.getElementById('<%=TextBox1.ClientID%>').value;
+            window.close();
+        }
+</script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        Choose Your Name:<asp:TextBox ID="TextBox1" runat="server" Width="214px"></asp:TextBox>
+        <asp:Button ID="Button1" runat="server" Text="OK" OnClientClick="f2();" />
+    </div>
+    </form>
+</body>
+</html>
